@@ -1,0 +1,2 @@
+source;share/rover-v1/environment/ament_prefix_path.sh
+source;share/rover-v1/environment/path.sh
