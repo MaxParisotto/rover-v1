@@ -13,11 +13,11 @@ def generate_launch_description():
             parameters=[
                 {"use_sim_time": False},
                 {"queue_size": 1000}, 
-                {"resolution": 0.2},  # Map resolution in meters per cell
+                {"resolution": 0.5},  # Map resolution in meters per cell
                 {"max_scan_range": 8.0}  # Maximum Lidar range to consider in meters
             ],
             remappings=[
-                ('scan', '/scan')
+                ('scan', '/throttled_scan')
             ]
         ),
     ])
