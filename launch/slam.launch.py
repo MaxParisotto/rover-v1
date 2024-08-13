@@ -17,7 +17,7 @@ def generate_launch_description():
                 {"max_scan_range": 8.0}  # Maximum Lidar range to consider in meters
             ],
             remappings=[
-                ('scan', '/throttled_scan')
+                ('scan', '/scan')
             ]
         ),
     ])
