@@ -4,18 +4,18 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    # LDROBOT LiDAR publisher node for LD20
+    # LDROBOT LiDAR publisher node for LD19
     ldlidar_node = Node(
         package='ldlidar_stl_ros2',
         executable='ldlidar_stl_ros2_node',
         name='LD20',
         output='screen',
         parameters=[
-            {'product_name': 'LDLiDAR_LD20'},  # Updated for LD20
+            {'product_name': 'LDLiDAR_LD19'}, 
             {'topic_name': 'scan'},
             {'frame_id': 'base_laser'},
             {'port_name': '/dev/ttyUSB0'},
-            {'port_baudrate': 230400},  # Verify this matches LD20's baud rate
+            {'port_baudrate': 230400}, 
             {'laser_scan_dir': True},
             {'enable_angle_crop_func': False},
             {'angle_crop_min': 135.0},
@@ -27,7 +27,7 @@ def generate_launch_description():
     base_link_to_laser_tf_node = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        name='base_link_to_base_laser_ld20',
+        name='base_link_to_base_laser_ld19',
         arguments=['0', '0', '0.18', '0', '0', '0', 'base_link', 'base_laser']
     )
 
