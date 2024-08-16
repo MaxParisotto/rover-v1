@@ -1,6 +1,10 @@
+
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "sensor_msgs/msg/laser_scan.hpp"
+#include <chrono>
+
+using namespace std::chrono_literals;  // Add this line
 
 class ExplorationNode : public rclcpp::Node
 {
@@ -13,14 +17,14 @@ public:
             "scan", 10, std::bind(&ExplorationNode::scan_callback, this, std::placeholders::_1));
         
         timer_ = this->create_wall_timer(
-            500ms, std::bind(&ExplorationNode::timer_callback, this));
+            500ms, std::bind(&ExplorationNode::timer_callback, this));  // Corrected here
     }
 
 private:
     void scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg)
     {
-        // Analyze scan data to avoid obstacles or find frontiers
-        // This is where you'd implement the exploration logic
+    // Log that a scan message was received
+    RCLCPP_INFO(this->get_logger(), "Received a scan message with %zu ranges", msg->ranges.size());
     }
 
     void timer_callback()
