@@ -62,4 +62,25 @@ def generate_launch_description():
             name='exploration_node',
             output='screen',
         ),
+
+        # Robot State Publisher Node
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            output='screen',
+            parameters=[{
+                'use_sim_time': False,
+                'robot_description': open('/home/max/rover_ws/src/rover-v1/urdf/robot.urdf').read()
+            }],
+        ),
+
+        # Static Transform Publisher Node (optional, for static frames like a fixed LiDAR mount)
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='static_transform_publisher',
+            arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'laser_frame'],
+            output='screen'
+        ),
     ])
