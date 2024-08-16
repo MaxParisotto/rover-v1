@@ -91,7 +91,7 @@ def generate_launch_description():
             name='map_server',
             output='screen',
             parameters=[{
-                'yaml_filename': '/home/max/map.yaml'  # Path to your map yaml file
+                'yaml_filename': '/home/max/rover_ws/maps/my_map.yaml'  # Path to your map yaml file
             }],
         ),
     ])
