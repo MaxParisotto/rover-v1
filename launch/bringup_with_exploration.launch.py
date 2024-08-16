@@ -83,4 +83,15 @@ def generate_launch_description():
             arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'laser_frame'],
             output='screen'
         ),
+
+        # Map Server Node (to load the map at startup)
+        Node(
+            package='nav2_map_server',
+            executable='map_server',
+            name='map_server',
+            output='screen',
+            parameters=[{
+                'yaml_filename': '/home/max/map.yaml'  # Path to your map yaml file
+            }],
+        ),
     ])
