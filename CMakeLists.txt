@@ -23,8 +23,12 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(DIRECTORY launch
- DESTINATION share/${PROJECT_NAME}
+install(TARGETS
+  motor_controller_node
+  lidar_node
+  imu_node
+  camera_node
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()
